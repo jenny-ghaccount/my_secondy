@@ -7,26 +7,34 @@
   <title>European Weather Forecast</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <!-- Skip Link -->
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
-  <!-- Decorative Clouds -->
+  <!-- Decorative Elements -->
+  <div class="decorative-container" aria-hidden="true">
+    <div class="circle circle-1"></div>
+    <div class="circle circle-2"></div>
+    <div class="organic-shape"></div>
+  </div>
+
+  <!-- Clouds for rain effect -->
   <div class="clouds-container" aria-hidden="true">
     <div class="cloud cloud-1"></div>
     <div class="cloud cloud-2"></div>
-    <div class="cloud cloud-3"></div>
-    <div class="cloud cloud-4"></div>
-    <div class="cloud cloud-5"></div>
   </div>
 
   <!-- Header -->
   <header class="header">
     <div class="container">
-      <h1 class="logo">☁️ Euro Weather</h1>
+      <h1 class="logo">EURO<br>WEATHER</h1>
+      <button class="menu-btn" aria-label="Menu">
+        <span></span>
+        <span></span>
+      </button>
     </div>
   </header>
 
@@ -35,35 +43,40 @@
     <div class="container">
       <!-- Hero Section -->
       <section class="hero">
-        <h2 class="hero-title">Today's Weather in Europe</h2>
-        <p class="hero-subtitle">Select a city to get the current forecast in Celsius</p>
+        <div class="hero-content">
+          <span class="hero-prefix">the</span>
+          <h2 class="hero-title">BEAUTY</h2>
+          <span class="hero-italic">of</span>
+          <h2 class="hero-title hero-title-alt">WEATHER</h2>
+        </div>
+        <p class="hero-tagline">"Every city has its own atmosphere"</p>
 
         <!-- City Search Form -->
         <form id="weather-form" class="search-form" role="search">
           <div class="form-group">
-            <label for="city-input" class="form-label">City name</label>
+            <label for="city-input" class="form-label">Enter a European city</label>
             <div class="input-wrapper">
               <input 
                 type="text" 
                 id="city-input" 
                 name="city" 
                 class="form-input"
-                placeholder="e.g., Paris, Berlin, Rome..."
+                placeholder="Paris, Berlin, Rome..."
                 autocomplete="off"
                 list="city-suggestions"
                 aria-describedby="city-helper"
                 required
               >
               <datalist id="city-suggestions"></datalist>
+              <button type="submit" class="btn-primary" id="submit-btn" aria-label="Get forecast">
+                <span class="btn-text">→</span>
+                <span class="btn-loading" aria-hidden="true">
+                  <span class="spinner"></span>
+                </span>
+              </button>
             </div>
-            <span id="city-helper" class="helper-text">Start typing to see European cities</span>
+            <span id="city-helper" class="helper-text">Start typing to discover cities</span>
           </div>
-          <button type="submit" class="btn-primary" id="submit-btn">
-            <span class="btn-text">Get Forecast</span>
-            <span class="btn-loading" aria-hidden="true">
-              <span class="spinner"></span>
-            </span>
-          </button>
         </form>
       </section>
 
@@ -79,7 +92,7 @@
 
         <!-- Error State -->
         <div id="error-state" class="error-message" role="alert" hidden>
-          <span class="error-icon" aria-hidden="true">⚠️</span>
+          <span class="error-icon" aria-hidden="true">!</span>
           <p id="error-text"></p>
           <button type="button" class="btn-secondary" id="retry-btn">Try Again</button>
         </div>
@@ -101,17 +114,14 @@
 
           <div class="weather-details">
             <div class="detail-item">
-              <span class="detail-icon" aria-hidden="true">🌡️</span>
               <span class="detail-label">High / Low</span>
               <span id="weather-highlow" class="detail-value"></span>
             </div>
             <div class="detail-item">
-              <span class="detail-icon" aria-hidden="true">💨</span>
               <span class="detail-label">Wind</span>
               <span id="weather-wind" class="detail-value"></span>
             </div>
             <div class="detail-item">
-              <span class="detail-icon" aria-hidden="true">💧</span>
               <span class="detail-label">Humidity</span>
               <span id="weather-humidity" class="detail-value"></span>
             </div>
@@ -124,7 +134,8 @@
   <!-- Footer -->
   <footer class="footer">
     <div class="container">
-      <p>&copy; 2026 Euro Weather. Data from <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo</a>.</p>
+      <div class="footer-wave" aria-hidden="true">∿</div>
+      <p>Data from <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo</a></p>
     </div>
   </footer>
 
