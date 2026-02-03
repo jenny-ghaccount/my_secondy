@@ -84,47 +84,60 @@
       <section id="weather-result" class="weather-section" aria-live="polite">
         <!-- Loading State -->
         <div id="loading-state" class="weather-card loading-card" hidden>
-          <div class="skeleton skeleton-title"></div>
-          <div class="skeleton skeleton-icon"></div>
+          <div class="skeleton skeleton-city"></div>
           <div class="skeleton skeleton-temp"></div>
-          <div class="skeleton skeleton-details"></div>
+          <div class="skeleton skeleton-condition"></div>
         </div>
 
         <!-- Error State -->
         <div id="error-state" class="error-message" role="alert" hidden>
-          <span class="error-icon" aria-hidden="true">!</span>
-          <p id="error-text"></p>
+          <div class="error-content">
+            <span class="error-icon" aria-hidden="true">!</span>
+            <p id="error-text"></p>
+          </div>
           <button type="button" class="btn-secondary" id="retry-btn">Try Again</button>
         </div>
 
         <!-- Weather Card -->
         <article id="weather-card" class="weather-card" hidden>
-          <header class="weather-header">
-            <h3 id="weather-city" class="weather-city"></h3>
-            <time id="weather-date" class="weather-date"></time>
-          </header>
-          
-          <div class="weather-main">
-            <span id="weather-icon" class="weather-icon" aria-hidden="true"></span>
-            <div class="weather-temp-group">
-              <span id="weather-temp" class="weather-temp"></span>
-              <span id="weather-condition" class="weather-condition"></span>
+          <div class="weather-layout">
+            <!-- Left: Main Info -->
+            <div class="weather-primary">
+              <header class="weather-header">
+                <span id="weather-icon" class="weather-icon" aria-hidden="true"></span>
+                <div class="weather-location">
+                  <h3 id="weather-city" class="weather-city"></h3>
+                  <time id="weather-date" class="weather-date"></time>
+                </div>
+              </header>
+              
+              <div class="weather-temp-display">
+                <span id="weather-temp" class="weather-temp"></span>
+                <span class="weather-unit">°C</span>
+              </div>
+              
+              <p id="weather-condition" class="weather-condition"></p>
+            </div>
+            
+            <!-- Right: Details -->
+            <div class="weather-secondary">
+              <div class="weather-detail">
+                <span class="detail-label">Feels Like</span>
+                <span id="weather-highlow" class="detail-value"></span>
+              </div>
+              <div class="weather-detail">
+                <span class="detail-label">Wind</span>
+                <span id="weather-wind" class="detail-value"></span>
+              </div>
+              <div class="weather-detail">
+                <span class="detail-label">Humidity</span>
+                <span id="weather-humidity" class="detail-value"></span>
+              </div>
             </div>
           </div>
-
-          <div class="weather-details">
-            <div class="detail-item">
-              <span class="detail-label">High / Low</span>
-              <span id="weather-highlow" class="detail-value"></span>
-            </div>
-            <div class="detail-item">
-              <span class="detail-label">Wind</span>
-              <span id="weather-wind" class="detail-value"></span>
-            </div>
-            <div class="detail-item">
-              <span class="detail-label">Humidity</span>
-              <span id="weather-humidity" class="detail-value"></span>
-            </div>
+          
+          <div class="weather-tagline">
+            <span class="tagline-text">"Weather is a great metaphor for life"</span>
           </div>
         </article>
       </section>
